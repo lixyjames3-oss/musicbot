@@ -6,8 +6,8 @@ from pyrogram import Client, filters
 app = Client(
     "music_bot",
     bot_token=os.environ.get("8576088538:AAFr-Fvas0pzH2ZkJmNdlYlF_dB7fkafteQ"),
-    api_id=int(os.environ.get("API_ID")),
-    api_hash=os.environ.get("API_HASH")
+    api_id=int(os.environ.get("21129853")),
+    api_hash=os.environ.get("383d64cb0d0bda6c3d8c6a5dae596d63")
 )
 
 @app.on_message(filters.command("start"))
