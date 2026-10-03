@@ -2,12 +2,21 @@ import os
 import yt_dlp
 from pyrogram import Client, filters
 
-# قراءة معلومات البوت بأمان من منصة الاستضافة
+# قراءة المتغيرات بشكل آمن
+BOT_TOKEN = os.environ.get("8576088538:AAFr-Fvas0pzH2ZkJmNdlYlF_dB7fkafteQ")
+API_ID = os.environ.get("21129853")
+API_HASH = os.environ.get("383d64cb0d0bda6c3d8c6a5dae596d63")
+
+# التحقق من وجود المتغيرات لمنع إغلاق البوت
+if not BOT_TOKEN or not API_ID or not API_HASH:
+    print("خطأ: يرجى التأكد من إضافة متغيرات البيئة (BOT_TOKEN, API_ID, API_HASH) في إعدادات المنصة!")
+    exit(1)
+
 app = Client(
     "music_bot",
-    bot_token=os.environ.get("8576088538:AAFr-Fvas0pzH2ZkJmNdlYlF_dB7fkafteQ"),
-    api_id=int(os.environ.get("21129853")),
-    api_hash=os.environ.get("383d64cb0d0bda6c3d8c6a5dae596d63")
+    bot_token=BOT_TOKEN,
+    api_id=int(API_ID),
+    api_hash=API_HASH
 )
 
 @app.on_message(filters.command("start"))
@@ -56,4 +65,4 @@ def download_music(client, message):
 if __name__ == "__main__":
     print("البوت يعمل الآن...")
     app.run()
-  
+    
